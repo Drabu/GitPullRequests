@@ -11,7 +11,6 @@ import javax.inject.Singleton
 class AppModule {
 
     @Provides
-    @Singleton
     fun providesGithubRepository(application: Application, apiService: ApiService): GithubRepository =
         GithubRepository(apiService, application)
 

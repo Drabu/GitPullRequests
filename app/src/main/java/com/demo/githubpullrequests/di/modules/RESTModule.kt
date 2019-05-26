@@ -17,7 +17,6 @@ class RESTModule {
 
     /** @author Burhan ud din ---> okhttp for logging and interception*/
     @Provides
-    @Singleton
     fun getOkhttpClient(): OkHttpClient {
         val okhttpClient = OkHttpClient.Builder()
         okhttpClient.addInterceptor(HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY))
@@ -28,7 +27,6 @@ class RESTModule {
 
     /** provides retrofit instance*/
     @Provides
-    @Singleton
     fun getInstance(okhttpClient: OkHttpClient): ApiService {
         val retrofit =
             Retrofit.Builder().baseUrl(AppConstants.BASE_URL).client(okhttpClient)

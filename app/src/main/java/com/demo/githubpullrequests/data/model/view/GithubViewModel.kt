@@ -9,6 +9,9 @@ import com.demo.githubpullrequests.data.repositories.GithubRepository
 class GithubViewModel(application: Application, var githubRepository: GithubRepository) :
     AndroidViewModel(application) {
 
+    init {
+        requestPullRequestsFor("octocat", "Hello-World")
+    }
 
     fun requestPullRequestsFor(githubUser: String, repositoryName: String) =
         githubRepository.requestPullRequestsFor(githubUser = githubUser, repositoryName = repositoryName)

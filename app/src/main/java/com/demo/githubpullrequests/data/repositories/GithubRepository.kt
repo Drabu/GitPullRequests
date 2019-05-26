@@ -17,7 +17,7 @@ class GithubRepository(var apiService: ApiService, application: Application) {
 
 
     fun requestPullRequestsFor(githubUser: String, repositoryName: String) {
-        apiService.getListOfPullRequests()
+        apiService.getListOfPullRequests(githubUser, repositoryName)
             .subscribeOn(io.reactivex.schedulers.Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe {
