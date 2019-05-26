@@ -1,7 +1,6 @@
 apply plugin: 'com.android.application'
-
 apply plugin: 'kotlin-android'
-
+apply plugin: 'kotlin-kapt'
 apply plugin: 'kotlin-android-extensions'
 
 android {
@@ -20,6 +19,17 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
+    compileOptions {
+        sourceCompatibility 8
+        targetCompatibility 8
+    }
+
+    dataBinding {
+        enabled true
+    }
+
+
 }
 
 dependencies {
@@ -30,4 +40,69 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    implementation 'androidx.recyclerview:recyclerview:1.0.0'
+
+
+
+    /*REST Api Libraries*/
+    implementation "com.squareup.okhttp3:okhttp:$rootProject.okhttp3Version"
+    implementation "com.squareup.retrofit2:retrofit:$rootProject.retrofitVersion"
+    implementation "com.squareup.okhttp3:logging-interceptor:$rootProject.loggingInterceptor"
+    implementation "com.squareup.retrofit2:converter-gson:$rootProject.gsonVersion"
+
+    /*Dependency Injection / Annotation Processor DAGGER 2*/
+    implementation "com.google.dagger:dagger:$rootProject.dagger2Version"
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    annotationProcessor "com.google.dagger:dagger-compiler:$rootProject.dagger2Version"
+    annotationProcessor "com.google.dagger:dagger-android-processor:$rootProject.dagger2Version"
+    implementation "com.google.dagger:dagger-android-support:$rootProject.dagger2Version"
+
+    kapt "com.google.dagger:dagger-android-processor:$rootProject.dagger2Version"
+    kapt "com.google.dagger:dagger-compiler:$rootProject.dagger2Version"
+
+    /*life cycle components android jetpack*/
+    implementation "androidx.lifecycle:lifecycle-extensions:$rootProject.lifeCycleExtensions"
+    kapt "androidx.lifecycle:lifecycle-compiler:$rootProject.lifeCycleExtensions"
+    testImplementation "androidx.arch.core:core-testing:$rootProject.lifeCycleCoreTesting"
+
+    /*Room persistence*/
+    implementation "androidx.room:room-runtime:$rootProject.lifeCycleExtensions"
+    annotationProcessor "androidx.room:room-compiler:$rootProject.lifeCycleExtensions"
+    kapt "androidx.room:room-compiler:$rootProject.lifeCycleExtensions"
+
+    /*work manager*/
+    implementation "androidx.work:work-runtime-ktx:$rootProject.wrkManagerV"
+    androidTestImplementation "androidx.work:work-testing:$rootProject.wrkManagerV"
+
+    /*RXAndroid and RXJava*/
+    implementation "io.reactivex.rxjava2:rxandroid:$rootProject.rxAndroid"
+    implementation "io.reactivex.rxjava2:rxjava:$rootProject.rxJava"
+
+    /*Rx Binding*/
+    implementation "com.jakewharton.rxbinding2:rxbinding:$rootProject.rxBindingVersion"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:$rootProject.rxRoomVersion"
+
+    /*RxJava support for Room*/
+    implementation "androidx.room:room-runtime:$rootProject.lifeCycleExtensions"
+    implementation "androidx.room:room-rxjava2:$rootProject.roomRxAdapter"
+    testImplementation "androidx.room:room-testing:$rootProject.roomRxAdapter"
+
+
+    /*Picasso for image*/
+    implementation "com.squareup.picasso:picasso:$rootProject.piccasoV"
+
+    /*Circle image View*/
+    implementation "de.hdodenhof:circleimageview:$rootProject.circleImageV"
+
+    /*Timber for Log*/
+    implementation "com.jakewharton.timber:timber:$rootProject.timberVersion"
+
+    /*facebook shimmer*/
+    implementation "com.facebook.shimmer:shimmer:$rootProject.FbShimmer"
+
+    // https://mvnrepository.com/artifact/javax.annotation/jsr250-api
+    compile group: 'javax.annotation', name: 'jsr250-api', version: '1.0'
+
+
+
 }

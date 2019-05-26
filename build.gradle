@@ -26,3 +26,40 @@ allprojects {
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
+
+ext {
+
+    comileSdkVersionValue = 28
+    minimumSdkVersion = 19
+    targetSdkVersion = 28
+    versionCode = 1
+    versionName = '1.0'
+
+
+    okhttp3Version = "3.14.0"
+    retrofitVersion = "2.5.0"
+    archVersion = "1.1.1"
+    recyclerViewVersion = "28.0.0"
+    gsonVersion = "2.4.0"
+    loggingInterceptor = "3.12.1"
+
+    dagger2Version = '2.22.1'
+    FbShimmer = '0.4.0'
+
+    rxRoomVersion = '2.4.0'
+    rxBindingVersion = '2.1.1'
+    rxJava = '2.2.8'
+    rxAndroid = '2.1.1'
+    roomVersion = '1.1.1'
+
+    lifeCycleExtensions = '2.0.0'
+    lifeCycleCoreTesting = "2.0.1"
+    roomRxAdapter = "2.0.0"
+    wrkManagerV = "2.0.1"
+
+    timberVersion = "4.7.1"
+    circleImageV = "3.0.0"
+    piccasoV = "2.71828"
+
+
+}
