@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">GithubPullRequests</string>
+    <string name="username">Username</string>
+    <string name="repository">Repository</string>
 </resources>
