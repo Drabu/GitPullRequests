@@ -5,11 +5,16 @@ import com.demo.githubpullrequests.data.api_client.ApiService
 import com.demo.githubpullrequests.data.repositories.GithubRepository
 import dagger.Module
 import dagger.Provides
-import javax.inject.Singleton
 
+/**
+ *@author Burhan ud din ---> Dagger component
+ */
 @Module
 class AppModule {
 
+    /**
+     *@author Burhan ud din ---> provides github repository
+     */
     @Provides
     fun providesGithubRepository(application: Application, apiService: ApiService): GithubRepository =
         GithubRepository(apiService, application)

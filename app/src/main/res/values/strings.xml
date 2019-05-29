@@ -2,4 +2,20 @@
     <string name="app_name">GithubPullRequests</string>
     <string name="username">Username</string>
     <string name="repository">Repository</string>
+    <string name="get_pull_requests">GET PULL REQUESTS</string>
+
+    <string name="sample_subtitle_text">Sample subtitle text</string>
+    <string name="sample_title_text">Sample title text</string>
+    <string name="lorem_ipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed</string>
+    <string name="language">C++</string>
+    <string name="periodStars">4,234</string>
+    <string name="repoForks">1,499</string>
+    <string name="toolbarTitle">Trending</string>
+    <string name="todo">TODO</string>
+    <string name="alien_blocking">An alien is probably blocking your signal.</string>
+    <string name="somthing_went_wrong">Something went wrong..</string>
+    <string name="retry">RETRY</string>
+    <string name="click_for_demo">Click here for demo repository</string>
+    <string name="demo_rep">Hello-World</string>
+    <string name="demo_username">octocat</string>
 </resources>

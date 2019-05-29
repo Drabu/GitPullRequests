@@ -7,6 +7,9 @@ import com.demo.githubpullrequests.data.model.view.GithubViewModel
 import com.demo.githubpullrequests.data.repositories.GithubRepository
 import javax.inject.Inject
 
+/**
+*@author Burhan ud din ---> factory used to inject repository to viewmodel
+*/
 @Suppress("UNCHECKED_CAST")
 class ViewModelProviderFactory @Inject constructor(
     var application: Application,

@@ -1,13 +1,14 @@
 package com.demo.githubpullrequests.ui.adapters
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.demo.githubpullrequests.R
 import com.demo.githubpullrequests.data.model.api.PullRequests
+import com.demo.githubpullrequests.databinding.ListAdapterBinding
 import com.demo.githubpullrequests.utils.AppConstants
+import com.squareup.picasso.Picasso
 
 class PullRequestAdapter(var pullRequests: List<PullRequests?> = ArrayList()) :
     RecyclerView.Adapter<PullRequestAdapter.CustomViewHolder>() {
@@ -16,18 +17,31 @@ class PullRequestAdapter(var pullRequests: List<PullRequests?> = ArrayList()) :
         return if (viewType == AppConstants.PROGRESS_VIEW) {
             CustomViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.progress_view, parent, false))
         } else {
-            CustomViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.list_adapter, parent, false))
+            ListViewHolder(ListAdapterBinding.inflate(LayoutInflater.from(parent.context), parent, false))
         }
-
     }
-
 
     override fun getItemCount(): Int {
         return pullRequests.size
     }
 
     override fun onBindViewHolder(holder: CustomViewHolder, position: Int) {
+        if (holder is ListViewHolder) {
+            bindView(holder, position)
+        }
+    }
 
+    private fun bindView(holder: ListViewHolder, position: Int) {
+
+        holder.binding.repTitleTV.text = pullRequests[position]?.title
+        holder.binding.repSubTitleTV.text = pullRequests[position]?.body
+
+        try {
+            Picasso.get().load(pullRequests[position]?.user?.avatarUrl)
+                .placeholder(R.drawable.placeholder).into(holder.binding.authorAvatarCIV)
+        } catch (e: IndexOutOfBoundsException) {
+            e.printStackTrace()
+        }
     }
 
     fun setItems(it: List<PullRequests?>) {
@@ -46,7 +60,7 @@ class PullRequestAdapter(var pullRequests: List<PullRequests?> = ArrayList()) :
 
     open class CustomViewHolder(view: View) : RecyclerView.ViewHolder(view)
 
-    inner class ListViewHolder(view: View) : CustomViewHolder(view)
+    inner class ListViewHolder(var binding: ListAdapterBinding) : CustomViewHolder(binding.root)
 
     inner class ProgressViewHolder(view: View) : CustomViewHolder(view)
 

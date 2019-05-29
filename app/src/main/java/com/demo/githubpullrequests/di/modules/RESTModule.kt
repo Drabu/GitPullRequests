@@ -12,6 +12,9 @@ import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 import javax.inject.Singleton
 
+/**
+*@author Burhan ud din ---> Provides rest module to dagger.
+*/
 @Module
 class RESTModule {
 

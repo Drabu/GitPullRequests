@@ -9,22 +9,24 @@ object AppConstants {
     const val PROGRESS_VIEW = 1
     const val LIST_VIEW = 12
 
+    const val NO_DATA = "com.demo.githubpullrequests.NO_DATA"
+
     enum class LoadingManager {
         STATE_NO_MORE_PAGES,
         STATE_REFRESHING,
         STATE_COMPLETED,
         STATE_ERROR,
         STATE_NO_INTERNET,
-        STATE_FORCE_REFRESH
+        STATE_NO_PULL_REQUESTS
     }
 
     class PagingManager(
-        var currentItems: Int = AppConstants.DEFAULT_ITEM_COUNT,
-        var scrolledOutItems: Int = AppConstants.DEFAULT_ITEM_COUNT,
-        var totalItems: Int = AppConstants.DEFAULT_ITEM_COUNT,
+        var currentItems: Int = DEFAULT_ITEM_COUNT,
+        var scrolledOutItems: Int = DEFAULT_ITEM_COUNT,
+        var totalItems: Int = DEFAULT_ITEM_COUNT,
         var isScrolling: Boolean = false,
-        var pageNumber: Int = AppConstants.FIRST_PAGE
+        var pageNumber: Int = FIRST_PAGE
     )
 
-}
 
+}
